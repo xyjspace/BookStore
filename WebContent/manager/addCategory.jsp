@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ include file="/manager/header.jsp"%>
-		<br/><br/>
+	<br/><br/>
 		<form action="${pageContext.request.contextPath}/servlet/ControlServlet?op=addCategory" method="post">
 			<table border="1" width="438">
 				<tr>

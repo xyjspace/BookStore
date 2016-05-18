@@ -1,6 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://www.xyj.com/functions" prefix="myfn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -16,8 +17,8 @@
 		<br/>
 		<a href="${pageContext.request.contextPath}/manager/addCategory.jsp">添加图书分类</a>
 		<a href="${pageContext.request.contextPath}/servlet/ControlServlet?op=showAllCategory">查看图书分类</a>
-		<a href="">添加图书</a>
-		<a href="">查看图书</a>
+		<a href="${pageContext.request.contextPath}/servlet/ControlServlet?op=showAddBook">添加图书</a>
+		<a href="${pageContext.request.contextPath}/servlet/ControlServlet?op=showAllBook">查看图书</a>
 		<a href="">待处理订单</a>
 		<a href="">已处理订单</a>
 		<br/>

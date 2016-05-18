@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import com.xyj.dao.CategoryDao;
@@ -27,6 +28,16 @@ public class CategoryDaoImpl implements CategoryDao {
 		try {
 			return qr.query("select * from categorys",
 					new BeanListHandler<Category>(Category.class));
+		} catch (SQLException e) {
+			throw new DaoException(e);
+		}
+	}
+
+	
+	public Category findById(String id) {
+		try {
+			return qr.query("select * from categorys where id=?",
+					new BeanHandler<Category>(Category.class),id);
 		} catch (SQLException e) {
 			throw new DaoException(e);
 		}
