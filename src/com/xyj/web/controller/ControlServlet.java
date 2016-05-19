@@ -30,6 +30,8 @@ public class ControlServlet extends HttpServlet {
 		String op = request.getParameter("op");
 		if("addCategory".equals(op)){
 			addCategoty(request,response);
+		}if("deleteCategory".equals(op)){
+			deleteCategory(request,response);
 		}if("showAllCategory".equals(op)){
 			showAllCategory(request,response);
 		}if("showAddBook".equals(op)){
@@ -42,7 +44,24 @@ public class ControlServlet extends HttpServlet {
 			}
 		}if("showAllBook".equals(op)){
 			showAllBook(request,response);
+		}if("deleteBook".equals(op)){
+			deleteBook(request,response);
 		}
+		
+	}
+
+	private void deleteCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String category_id = request.getParameter("categoryId");
+		bs.deleteCategory(category_id);
+		request.setAttribute("msg","删除成功");
+		request.getRequestDispatcher("/manager/message.jsp").forward(request, response);
+	}
+
+	private void deleteBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String bookId= request.getParameter("bookId");
+		bs.deleteBook(bookId);
+		request.setAttribute("msg","删除成功");
+		request.getRequestDispatcher("/manager/message.jsp").forward(request, response);
 	}
 
 	private void showAllBook(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

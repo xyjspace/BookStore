@@ -43,4 +43,13 @@ public class CategoryDaoImpl implements CategoryDao {
 		}
 	}
 
+	@Override
+	public void delete(String category_id) {
+		try {
+			qr.update("delete from categorys where id=?", category_id);
+		} catch (SQLException e) {
+			throw new DaoException(e);
+		}
+	}
+
 }

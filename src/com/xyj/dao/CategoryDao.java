@@ -12,4 +12,6 @@ public interface CategoryDao {
 
 	Category findById(String id);
 
+	void delete(String category_id);
+
 }

@@ -51,4 +51,33 @@ public class BookDaoImpl implements BookDao {
 		
 	}
 
+	@Override
+	public void delete(String bookId) {
+		try {
+			qr.update("delete from books where id=?",bookId);
+		} catch (SQLException e) {
+			throw new DaoException(e);
+		}
+	}
+
+	@Override
+	public int findBooksNumberByCategory(String category_id) {
+		try {
+			Object object = (Long) qr.query("select count(*) from books where category_id=?", new ScalarHandler(1),category_id);
+			Long num = (Long)object;
+			return num.intValue();
+		} catch (SQLException e) {
+			throw new DaoException(e);
+		}
+	}
+
+	@Override
+	public List<Book> findPageBooks(int currentIndex, int pageSize, String category_id) {
+		try {
+			return qr.query("select * from books where category_id=? limit ?,?", new BeanListHandler<Book>(Book.class),category_id,currentIndex,pageSize);
+		} catch (SQLException e) {
+			throw new DaoException(e);
+		}
+	}
+
 }

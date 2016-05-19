@@ -20,6 +20,9 @@ public class Page{
 		this.currentPageNum = currentPageNum;
 		
 		totalPageNum = totalRecords%pageSize==0?totalRecords/pageSize:totalRecords/pageSize+1;
+		if(totalPageNum==0){
+			totalPageNum=1;
+		}
 		currentIndex = (currentPageNum-1)*pageSize;
 	}
 	public List getRecords() {

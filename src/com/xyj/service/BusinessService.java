@@ -21,5 +21,11 @@ public interface BusinessService {
 	
 	
 	Page findPageBook(String pageNum);
+
+	void deleteBook(String bookId);
+
+	Page findPageBook(String pageNum, String category_id);
+
+	void deleteCategory(String category_id);
 	
 }

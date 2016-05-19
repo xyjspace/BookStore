@@ -12,4 +12,10 @@ public interface BookDao {
 
 	List<Book> findPageBooks(int currentIndex, int pageSize);
 
+	void delete(String bookId);
+
+	int findBooksNumberByCategory(String category_id);
+
+	List<Book> findPageBooks(int currentIndex, int pageSize, String category_id);
+
 }

@@ -27,7 +27,7 @@
 					</td>
 					<td nowrap="nowrap">
 						<a href="javascript:alert('略')">修改</a> 
-						<a href="javascript:alert('略')">删除</a>
+						<a href="${pageContext.request.contextPath}/servlet/ControlServlet?op=deleteBook&bookId=${c.id}">删除</a>
 					</td>
 				</tr>
 			</c:forEach>

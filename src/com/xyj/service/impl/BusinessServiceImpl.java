@@ -47,6 +47,32 @@ public class BusinessServiceImpl implements BusinessService {
 		page.setRecords(lists);
 		return page;
 	}
+	
+	@Override
+	public Page findPageBook(String pageNum, String category_id) {
+		int currentPageNum = 1;
+		if(pageNum!=null){
+			currentPageNum=Integer.parseInt(pageNum);
+		}
+		int totalRecords = bdao.findBooksNumberByCategory(category_id);
+		Page page = new Page(totalRecords, currentPageNum);
+		List<Book> lists = bdao.findPageBooks(page.getCurrentIndex(),page.getPageSize(),category_id);
+		page.setRecords(lists);
+		return page;
+	}
 
+
+	@Override
+	public void deleteBook(String bookId) {
+		bdao.delete(bookId);
+	}
+
+	@Override
+	public void deleteCategory(String category_id) {
+		dao.delete(category_id);
+		
+	}
+
+	
 
 }
