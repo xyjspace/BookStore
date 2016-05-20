@@ -18,4 +18,6 @@ public interface BookDao {
 
 	List<Book> findPageBooks(int currentIndex, int pageSize, String category_id);
 
+	Book findBookById(String bookId);
+
 }

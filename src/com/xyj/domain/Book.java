@@ -62,5 +62,10 @@ public class Book implements Serializable {
 	public void setCategory_id(String category_id) {
 		this.category_id = category_id;
 	}
+	@Override
+	public String toString() {
+		return "Book [name=" + name + ", author=" + author + ", description=" + description + ", price=" + price + "]";
+	}
+	
 
 }

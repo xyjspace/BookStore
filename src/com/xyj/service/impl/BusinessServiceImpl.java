@@ -73,6 +73,11 @@ public class BusinessServiceImpl implements BusinessService {
 		
 	}
 
+	@Override
+	public Book findBookById(String bookId) {
+		return bdao.findBookById(bookId);
+	}
+
 	
 
 }

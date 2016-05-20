@@ -16,3 +16,8 @@ CREATE TABLE books(
 	category_id VARCHAR(100),
 	CONSTRAINT category_id_fk FOREIGN KEY(category_id) REFERENCES categorys(id)
 )
+CREATE TABLE USERS(
+  id VARCHAR(100) PRIMARY KEY,
+  name¡¡VARCHAR(100) NOT NULL,
+  password VARCHAR(100)
+)

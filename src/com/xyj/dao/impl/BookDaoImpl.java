@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
@@ -75,6 +76,15 @@ public class BookDaoImpl implements BookDao {
 	public List<Book> findPageBooks(int currentIndex, int pageSize, String category_id) {
 		try {
 			return qr.query("select * from books where category_id=? limit ?,?", new BeanListHandler<Book>(Book.class),category_id,currentIndex,pageSize);
+		} catch (SQLException e) {
+			throw new DaoException(e);
+		}
+	}
+
+	@Override
+	public Book findBookById(String bookId) {
+		try {
+			return qr.query("select * from books where id=?", new BeanHandler<Book>(Book.class) ,bookId);
 		} catch (SQLException e) {
 			throw new DaoException(e);
 		}

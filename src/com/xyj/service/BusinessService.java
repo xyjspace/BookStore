@@ -28,4 +28,10 @@ public interface BusinessService {
 
 	void deleteCategory(String category_id);
 	
+	/**
+	 * 根据书的ID查询图书
+	 * @param bookId
+	 * @return
+	 */
+	Book findBookById(String bookId);
 }
